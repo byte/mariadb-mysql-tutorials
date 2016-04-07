@@ -93,27 +93,27 @@ MariaDB Server 10.1 supports encryption for tables and InnoDB tablespaces. Encry
 	abc12345
 16. But what about the binlogs? `encrypt_binlog` in your config.
 
-MariaDB [(none)]> use unenc;
-Reading table information for completion of table and column names
-You can turn off this feature to get a quicker startup with -A
+	MariaDB [(none)]> use unenc;
+	Reading table information for completion of table and column names
+	You can turn off this feature to get a quicker startup with -A
 
-Database changed
-MariaDB [unenc]> alter table t encrypted=yes encryption_key_id=1;
-Query OK, 2 rows affected (0.03 sec)               
-Records: 2  Duplicates: 0  Warnings: 0
+	Database changed
+	MariaDB [unenc]> alter table t encrypted=yes encryption_key_id=1;
+	Query OK, 2 rows affected (0.03 sec)               
+	Records: 2  Duplicates: 0  Warnings: 0
 
-MariaDB [unenc]> insert into t values (3,'abc12345abc');
-Query OK, 1 row affected (0.00 sec)
+	MariaDB [unenc]> insert into t values (3,'abc12345abc');
+	Query OK, 1 row affected (0.00 sec)
 
-MariaDB [unenc]> select * from t;
-+------+-------------+
-| id   | value       |
-+------+-------------+
-|    1 | 12345       |
-|    2 | abc12345    |
-|    3 | abc12345abc |
-+------+-------------+
-3 rows in set (0.00 sec)
+	MariaDB [unenc]> select * from t;
+	+------+-------------+
+	| id   | value       |
+	+------+-------------+
+	|    1 | 12345       |
+	|    2 | abc12345    |
+	|    3 | abc12345abc |
+	+------+-------------+
+	3 rows in set (0.00 sec)
 
 	ERROR: Error in Log_event::read_log_event(): 'Found invalid event in binary log', data_len: 39, event_type: 26
 	/*!50530 SET @@SESSION.PSEUDO_SLAVE_MODE=1*/;
