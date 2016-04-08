@@ -5,6 +5,9 @@ MariaDB Server 10.1 supports encryption for tables and InnoDB tablespaces. Encry
 ## Documentation
 * [Data at Rest Encryption](https://mariadb.com/kb/en/mariadb/data-at-rest-encryption)
 
+## Notes
+* For ease of use (i.e. when you are deploying it), look at using the `/etc/my.cnf.d/enable_encryption.preset` - this will ensure you are running in an encrypted mode by default and you do not have to worry about not having all the options.
+
 ## Exercise: using file key management
 1. `create database unenc;`
 2. `use unenc;`
